@@ -5,4 +5,20 @@
       <UniqueIdentifier>{b74238af-05f5-406f-bf7e-384b094ae5a8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Vector.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Vector.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="PPMhandler.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingData.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>

@@ -3,6 +3,7 @@ Release/
 .vs/
 packages/
 VectorTest/
+cornell_box.ppm
 
 CornellBoxRenderer/*
 !CornellBoxRenderer/*.hpp

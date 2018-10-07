@@ -124,7 +124,6 @@
     <ClCompile Include="Vector.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="PPMhandler.h" />
     <ClInclude Include="PPMhandler.hpp" />
     <ClInclude Include="RandomGenerator.hpp" />
     <ClInclude Include="Ray.hpp" />

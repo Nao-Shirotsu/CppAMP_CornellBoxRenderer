@@ -26,9 +26,6 @@
     <ClInclude Include="Vector.hpp">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="PPMhandler.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="RenderingData.hpp">
       <Filter>src</Filter>
     </ClInclude>

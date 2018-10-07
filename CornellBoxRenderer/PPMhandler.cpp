@@ -1,9 +1,9 @@
-#include <fstream>
+﻿#include <fstream>
 #include <cstdlib>
 #include <iostream>
 #include <cmath>
 
-#include "PPMhandler.h"
+#include "PPMhandler.hpp"
 
 void GeneratePpmFile( const RenderingData* color, const int length, const int width ){
 	std::ofstream ofs( "../cornell_box.ppm" );

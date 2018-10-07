@@ -18,6 +18,9 @@
     <ClCompile Include="RandomGenerator.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="Ray.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Vector.hpp">
@@ -30,6 +33,12 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="RandomGenerator.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="PPMhandler.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Ray.hpp">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

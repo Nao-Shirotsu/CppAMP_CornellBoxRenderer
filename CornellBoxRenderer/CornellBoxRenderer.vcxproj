@@ -120,11 +120,14 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PPMhandler.cpp" />
     <ClCompile Include="RandomGenerator.cpp" />
+    <ClCompile Include="Ray.cpp" />
     <ClCompile Include="Vector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PPMhandler.h" />
+    <ClInclude Include="PPMhandler.hpp" />
     <ClInclude Include="RandomGenerator.hpp" />
+    <ClInclude Include="Ray.hpp" />
     <ClInclude Include="RenderingData.hpp" />
     <ClInclude Include="Vector.hpp" />
   </ItemGroup>

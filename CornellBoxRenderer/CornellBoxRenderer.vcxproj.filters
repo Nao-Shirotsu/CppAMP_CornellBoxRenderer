@@ -21,15 +21,9 @@
     <ClCompile Include="Ray.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Intersection.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Vector.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="PPMhandler.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="RenderingData.hpp">
@@ -44,11 +38,11 @@
     <ClInclude Include="Ray.hpp">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="Constant.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Intersection.hpp">
       <Filter>src</Filter>
     </ClInclude>
+=======
+>>>>>>> parent of db021d1... レイと物体の表面の交差点情報を管理するクラスを実装
   </ItemGroup>
 </Project>

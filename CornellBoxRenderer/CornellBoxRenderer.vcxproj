@@ -117,6 +117,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Intersection.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PPMhandler.cpp" />
     <ClCompile Include="RandomGenerator.cpp" />
@@ -124,6 +125,8 @@
     <ClCompile Include="Vector.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Constant.hpp" />
+    <ClInclude Include="Intersection.hpp" />
     <ClInclude Include="PPMhandler.h" />
     <ClInclude Include="PPMhandler.hpp" />
     <ClInclude Include="RandomGenerator.hpp" />

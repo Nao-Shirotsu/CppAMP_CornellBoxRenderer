@@ -117,6 +117,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Intersection.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PPMhandler.cpp" />
     <ClCompile Include="RandomGenerator.cpp" />
@@ -124,11 +125,8 @@
     <ClCompile Include="Vector.cpp" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
+    <ClInclude Include="Constant.hpp" />
     <ClInclude Include="Intersection.hpp" />
-=======
-    <ClInclude Include="PPMhandler.h" />
->>>>>>> parent of db021d1... レイと物体の表面の交差点情報を管理するクラスを実装
     <ClInclude Include="PPMhandler.hpp" />
     <ClInclude Include="RandomGenerator.hpp" />
     <ClInclude Include="Ray.hpp" />

@@ -8,5 +8,5 @@ These C++ codes create a .ppm image that a 3D cornell box renders with the Path-
 
 ### ビルド Build
 C++17対応コンパイラでビルドできます。外部ライブラリは使用しておりません。     
-You can build with only standard C++ compiler that can handle C++17.     
+You can build with any C++ compiler that can handle C++17.     
 Source codes don't need any library except the standard libraries.

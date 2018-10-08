@@ -1,10 +1,10 @@
-#pragma once
+ï»¿#pragma once
 
-#include "RenderingData.hpp"
+#include "Color.hpp"
 
-// RenderingDataŒ^‚ğ‚à‚Æ‚É.ppmƒtƒ@ƒCƒ‹‚ğ¶¬‚·‚é(==ppmƒtƒ@ƒCƒ‹‚É•`‰æ‚·‚é)
-// length = ‰¡• = x,  width = c• = y
-void GeneratePpmFile( const RenderingData* color, const int length, const int width );
+// Colorå‹ã‚’ã‚‚ã¨ã«.ppmãƒ•ã‚¡ã‚¤ãƒ«ã‚’ç”Ÿæˆã™ã‚‹(==ppmãƒ•ã‚¡ã‚¤ãƒ«ã«æç”»ã™ã‚‹)
+// length = æ¨ªå¹… = x,  width = ç¸¦å¹… = y
+void GeneratePpmFile( const Color* color, const int length, const int width );
 
-// 0.0~1.0‚ÌFƒf[ƒ^‚ğ0~255‚Ì®”’l‚É•ÏŠ·
+// 0.0~1.0ã®è‰²ãƒ‡ãƒ¼ã‚¿ã‚’0~255ã®æ•´æ•°å€¤ã«å¤‰æ›
 int ToPixelValue( double n );

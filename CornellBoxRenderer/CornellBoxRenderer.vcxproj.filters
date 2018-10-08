@@ -30,9 +30,6 @@
     <ClInclude Include="Ray.hpp">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="RenderingData.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="Vector.hpp">
       <Filter>src</Filter>
     </ClInclude>
@@ -40,6 +37,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="Constant.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Color.hpp">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

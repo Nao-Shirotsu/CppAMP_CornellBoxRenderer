@@ -130,7 +130,7 @@
     <ClInclude Include="PPMhandler.hpp" />
     <ClInclude Include="RandomGenerator.hpp" />
     <ClInclude Include="Ray.hpp" />
-    <ClInclude Include="RenderingData.hpp" />
+    <ClInclude Include="Color.hpp" />
     <ClInclude Include="Vector.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -2,7 +2,7 @@
 
 #include "Vector.hpp"
 
-// レイと物体の交差点情報を管理するクラス
+// Rayと物体の交差点情報を管理するクラス
 class Intersection{
 public:
 	Intersection();
@@ -14,7 +14,7 @@ public:
 	// Rayの始点から交差点までの距離
 	double distance;
 
-	// 交差点における物体の法線
+	// 交差点を始点とする物体の法線
 	Vector3 normalVec;
 
 	// 交差点のワールド座標系における位置

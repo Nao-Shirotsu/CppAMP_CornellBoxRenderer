@@ -13,7 +13,4 @@ constexpr double INF = 1e200;
 // 0に近い数
 constexpr double MIN0 = 1e-6;
 
-// 光の屈折率
-constexpr double IOR = 1.5;
-
 }

@@ -19,6 +19,9 @@
     <ClCompile Include="Intersection.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="Sphere.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PPMhandler.hpp">
@@ -40,6 +43,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="Color.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere.hpp">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

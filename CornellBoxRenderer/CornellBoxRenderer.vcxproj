@@ -132,6 +132,7 @@
     <ClInclude Include="RandomGenerator.hpp" />
     <ClInclude Include="Ray.hpp" />
     <ClInclude Include="Color.hpp" />
+    <ClInclude Include="Scene.hpp" />
     <ClInclude Include="Sphere.hpp" />
     <ClInclude Include="Vector.hpp" />
   </ItemGroup>

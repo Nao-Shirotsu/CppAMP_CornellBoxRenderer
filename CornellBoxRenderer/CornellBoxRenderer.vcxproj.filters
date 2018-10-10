@@ -48,6 +48,9 @@
     <ClInclude Include="Sphere.hpp">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="Scene.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">

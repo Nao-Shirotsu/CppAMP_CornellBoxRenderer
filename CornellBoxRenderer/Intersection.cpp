@@ -6,16 +6,15 @@
 Intersection::Intersection():
 	distance( Constant::INF ),
 	normalVec(),
-	pos(){
-	id = ++objNum;
-}
+	pos(),
+	intersectedID( -1 ){}
 
-Intersection::~Intersection(){
-	if( --objNum < 0 ){
-		std::exit( -1 );
+Intersection& Intersection::operator=( const Intersection& rIts ){
+	if( this != &rIts ){
+		distance = rIts.distance;
+		normalVec = rIts.normalVec;
+		pos = rIts.pos;
+		intersectedID = rIts.intersectedID;
 	}
-}
-
-int Intersection::GetID(){
-	return id;
+	return *this;
 }

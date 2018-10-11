@@ -17,7 +17,8 @@ bool Sphere::Intersect( const Ray & ray, Intersection & its ) const{
 	// tを実数とすると、交差点の位置ベクトル
 	// P(t) = ray.origin - t * ray.dir
 
-	// 次の方程式によってtを求められる、すなわち交差点を求められる
+	// よって、次の方程式によってtを求められる。
+	// (交差判定と判別式Dは次の式によって計算するということ)
 	// | pos - P(t) | = radius
 	// ( pos - P(t) )^2 - radius = 0
 

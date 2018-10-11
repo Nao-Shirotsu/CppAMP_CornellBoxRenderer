@@ -2,14 +2,13 @@
 
 #include "Vector.hpp"
 
-// Rayと物体の交差点情報を管理するクラス
+// Rayと物体の交差点情報を保存する構造体
 class Intersection{
 public:
 	Intersection();
-	~Intersection();
 
-	// このオブジェクトのIDを返す
-	int GetID();
+	// コピー代入演算子
+	Intersection& operator=( const Intersection& rIts );
 
 	// Rayの始点から交差点までの距離
 	double distance;
@@ -20,10 +19,7 @@ public:
 	// 交差点のワールド座標系における位置
 	Vector3 pos;
 
-private:
-	// 交差点オブジェクトの識別番号 1-origin
-	int id;
-
-	// このクラスのオブジェクト数を記録し、各objで使用=番被り防止
-	static inline int objNum;
+	// どの球と交差したか識別する番号
+	// Scene.sphere[]の配列番号をこれに保存する
+	int intersectedID;
 };

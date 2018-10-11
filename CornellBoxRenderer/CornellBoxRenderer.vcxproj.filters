@@ -22,6 +22,9 @@
     <ClCompile Include="Sphere.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PPMhandler.hpp">

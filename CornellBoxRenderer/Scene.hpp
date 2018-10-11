@@ -12,7 +12,7 @@ public:
 	Scene();
 
 	// シーン内に存在するオブジェクト全てと1つのRayの交差判定
-	bool IntersectAll( const Ray& ray, Intersection& its );
+	bool IntersectAll( const Ray& ray, Intersection* const its );
 	
 	// シーン内に存在する球オブジェクト全て
 	std::vector<Sphere> spheres;

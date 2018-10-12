@@ -120,8 +120,10 @@
     <ClCompile Include="Intersection.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PPMhandler.cpp" />
+    <ClCompile Include="Radiance.cpp" />
     <ClCompile Include="RandomGenerator.cpp" />
     <ClCompile Include="Ray.cpp" />
+    <ClCompile Include="Render.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="Vector.cpp" />
@@ -130,9 +132,11 @@
     <ClInclude Include="Constant.hpp" />
     <ClInclude Include="Intersection.hpp" />
     <ClInclude Include="PPMhandler.hpp" />
+    <ClInclude Include="Radiance.hpp" />
     <ClInclude Include="RandomGenerator.hpp" />
     <ClInclude Include="Ray.hpp" />
     <ClInclude Include="Color.hpp" />
+    <ClInclude Include="Render.hpp" />
     <ClInclude Include="Scene.hpp" />
     <ClInclude Include="Sphere.hpp" />
     <ClInclude Include="Vector.hpp" />

@@ -1,42 +1,42 @@
-#pragma once
+ï»¿#pragma once
 
-// 3ŸŒ³ƒxƒNƒgƒ‹ƒNƒ‰ƒX
-// ƒxƒNƒgƒ‹“¯m‚Ì‰ÁŒ¸Z,ƒXƒJƒ‰[‚ğæœZ,“àÏ,ŠOÏ,‘å‚«‚³‚ÌŒvZ,³‹K‰»‚ª‚Å‚«‚é
+// 3æ¬¡å…ƒãƒ™ã‚¯ãƒˆãƒ«ã‚¯ãƒ©ã‚¹
+// ãƒ™ã‚¯ãƒˆãƒ«åŒå£«ã®åŠ æ¸›ç®—,ã‚¹ã‚«ãƒ©ãƒ¼ã‚’ä¹—é™¤ç®—,å†…ç©,å¤–ç©,å¤§ãã•ã®è¨ˆç®—,æ­£è¦åŒ–ãŒã§ãã‚‹
 struct Vector3{
-	// default : ‰½‚à‚µ‚È‚¢
+	// default : ä½•ã‚‚ã—ãªã„
 	Vector3();
 
-	// normal : ˆø”‚Ì’l‚ğ‚ÂÀ‘Ì‚ğ¶¬
+	// normal : å¼•æ•°ã®å€¤ã‚’æŒã¤å®Ÿä½“ã‚’ç”Ÿæˆ
 	explicit Vector3( const double x_, const double y_, const double z_ );
 
-	// copy : ˆø”‚Æ“™‚µ‚¢’l‚ğ‚Â•ÊÀ‘Ì‚ğ¶¬
+	// copy : å¼•æ•°ã¨ç­‰ã—ã„å€¤ã‚’æŒã¤åˆ¥å®Ÿä½“ã‚’ç”Ÿæˆ
 	Vector3( const Vector3& vec );
 
 	~Vector3();
 
-	// ¶•Ó‚ÌÀ‘Ì(this)‚Ìx,y,z‚É‰E•Ó‚ÌÀ‘Ì‚Ìx,y,z‚Ì’l‚ğ‘ã“ü
+	// å·¦è¾ºã®å®Ÿä½“(this)ã®x,y,zã«å³è¾ºã®å®Ÿä½“ã®x,y,zã®å€¤ã‚’ä»£å…¥
 	Vector3& operator=( const Vector3& vec );
 
-	// ƒxƒNƒgƒ‹“¯m‚Ì‰ÁŒ¸Z@“¯ã
+	// ãƒ™ã‚¯ãƒˆãƒ«åŒå£«ã®åŠ æ¸›ç®—ã€€åŒä¸Š
 	Vector3 operator+( const Vector3& vec ) const;
 	Vector3 operator-( const Vector3& vec ) const;
 
-	// ƒXƒJƒ‰[æœZ (v/2 ‚Ì‚æ‚¤‚É‰E‘¤‚ÉƒXƒJƒ‰[)
+	// ã‚¹ã‚«ãƒ©ãƒ¼ä¹—é™¤ç®— (v/2 ã®ã‚ˆã†ã«å³å´ã«ã‚¹ã‚«ãƒ©ãƒ¼)
 	Vector3 operator/( const double num ) const;
 	Vector3 operator*( const double num ) const;
 
-	// ‘å‚«‚³‚ğ‹‚ß‚é
+	// å¤§ãã•ã‚’æ±‚ã‚ã‚‹
 	double Abs() const;
 
-	// ³‹K‰»
+	// æ­£è¦åŒ–
 	Vector3 NormalizedVector() const;
 
 	double x, y, z;
 };
 
-// ƒXƒJƒ‰[æZ (2v ‚Ì‚æ‚¤‚É¶‘¤‚ÉƒXƒJƒ‰[)
+// ã‚¹ã‚«ãƒ©ãƒ¼ä¹—ç®— (2v ã®ã‚ˆã†ã«å·¦å´ã«ã‚¹ã‚«ãƒ©ãƒ¼)
 Vector3 operator*( const double num, const Vector3& vec );
 
-// ƒxƒNƒgƒ‹‚Ì“àÏEŠOÏ
+// ãƒ™ã‚¯ãƒˆãƒ«ã®å†…ç©ãƒ»å¤–ç©
 double Dot( const Vector3& a, const Vector3& b );
 Vector3 Cross( const Vector3& a, const Vector3& b );

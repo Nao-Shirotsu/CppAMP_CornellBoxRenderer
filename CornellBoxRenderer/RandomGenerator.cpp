@@ -1,4 +1,4 @@
-#include "RandomGenerator.hpp"
+﻿#include "RandomGenerator.hpp"
 
 RandomGenerator::RandomGenerator():
 	engine( std::make_unique<std::mt19937>( std::random_device()() ) ),

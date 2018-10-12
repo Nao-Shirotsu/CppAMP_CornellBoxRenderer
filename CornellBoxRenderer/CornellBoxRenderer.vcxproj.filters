@@ -25,6 +25,12 @@
     <ClCompile Include="Scene.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="Render.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Radiance.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PPMhandler.hpp">
@@ -52,6 +58,12 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="Scene.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Render.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Radiance.hpp">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,2 +1,7 @@
+﻿#include "Render.hpp"
 
-int main(){}
+int main(){
+	Render( 640, 480 );
+
+	return 0;
+}

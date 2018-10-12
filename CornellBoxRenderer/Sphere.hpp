@@ -14,7 +14,6 @@ public:
 	// 交差していたらitsにその情報を書き込む
 	bool Intersect( const Ray& ray, Intersection& its ) const;
 
-protected:
 	// 半径
 	double radius;
 

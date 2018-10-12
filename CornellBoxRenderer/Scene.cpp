@@ -4,6 +4,7 @@
 #include "Constant.hpp"
 
 Scene::Scene(){
+	// 今回は球データは直書きする
 	spheres.emplace_back( Sphere( 1e5, Vector3( 1e5+1, 40.8, 81.6 ),   Color(),				Color( 0.75, 0.25, 0.25 ) ) ); // 左壁
 	spheres.emplace_back( Sphere( 1e5, Vector3( -1e5+99, 40.8, 81.6 ), Color(),				Color( 0.25, 0.25, 0.75 ) ) ); // 右壁
 	spheres.emplace_back( Sphere( 1e5, Vector3( 50, 40.8, 1e5 ),       Color(),				Color( 0.75, 0.75, 0.75 ) ) ); // 奥壁
@@ -14,7 +15,8 @@ Scene::Scene(){
 	spheres.emplace_back( Sphere( 15,  Vector3( 50, 90, 81.6 ),		   Color( 36, 36, 36 ), Color( 0.99, 0.99, 0.99 ) ) ); // 照明
 }	
 
-bool Scene::IntersectAll( const Ray& ray, Intersection* const its ){
+bool Scene::IntersectAll( const Ray& ray, std::shared_ptr<Intersection> const its ) const{
+
 	its->distance = Constant::INF;
 
 	for( int i = 0; i < spheres.size(); ++i ){

@@ -16,6 +16,7 @@ Scene::Scene(){
 }	
 
 bool Scene::IntersectAll( const Ray& ray, std::shared_ptr<Intersection> const its ) const{
+
 	its->distance = Constant::INF;
 
 	for( int i = 0; i < spheres.size(); ++i ){

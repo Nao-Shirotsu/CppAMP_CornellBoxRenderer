@@ -10,22 +10,22 @@
 
 namespace{
 
-static const Color BGCOLOR( 0.0, 0.0, 0.0 );
+const Color BGCOLOR( 0.0, 0.0, 0.0 );
 constexpr int DEPTH = 5; //ロシアンルーレットの最低保証回数
 constexpr int DEPTHLIMIT = 64;
 
 }
 
 Color Radiance( const Ray& ray, const RandomGenerator& rnd, const int depth ){
-	std::shared_ptr<Intersection> pIts = std::make_shared<Intersection>();
+	Intersection its;
 
 	// シーン内の何にも交差しなかった時
-	if( !Scene::IntersectToScene( ray, pIts ) ){
+	if( !Scene::IntersectToScene( ray, &its ) ){
 		return BGCOLOR;
 	}
 
-	const Sphere& currentObj = Scene::spheres[pIts->intersectedID];
-	const Intersection& hitpoint = *pIts;
+	const Sphere& currentObj = Scene::spheres[its.intersectedID];
+	const Intersection& hitpoint = its;
 	const Vector3 orientingNormalVec =
 		( Dot( hitpoint.normalVec, ray.dir ) < 0.0 )?
 		hitpoint.normalVec :
@@ -37,6 +37,12 @@ Color Radiance( const Ray& ray, const RandomGenerator& rnd, const int depth ){
 	// 一定回数以上rayが反射したらロシルレドボン確率を上げる
 	if( depth > DEPTHLIMIT ){
 		rusRouletteProbability *= std::pow( 0.5, depth - DEPTHLIMIT );
+	}
+
+	// 普通にロシルレをする時
+	if( depth > DEPTH && rnd() >= rusRouletteProbability ){
+		
+		return currentObj.emission;
 	}
 	else{
 		// ロシルレ実行されない時
@@ -61,7 +67,7 @@ Color Radiance( const Ray& ray, const RandomGenerator& rnd, const int depth ){
 
 	v = Cross( w, u );
 	
-	const double r1 = 2 * Constant::PI * rnd();
+	const double r1 = 2.0 * Constant::PI * rnd();
 	const double r2 = rnd();
 	const double rootR2 = std::sqrt( r2 );
 

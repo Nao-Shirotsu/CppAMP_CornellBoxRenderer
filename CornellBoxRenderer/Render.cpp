@@ -47,20 +47,17 @@ void Render( const int length, const int width ){
 	// 1サブピクセルに対するサンプリング回数
 	constexpr int sampleNum = 4;
 
-#pragma omp parallel for schedule(dynamic, 1) num_threads(4)
+// #pragma omp parallel for schedule(dynamic, 1) num_threads(4)
 	for( int y = 0; y < width; ++y ){
-		if( int persent = int( y / width ); persent > renderedPersent ){
-			renderedPersent = persent;
-			std::cout << "[ " << renderedPersent << "% ]" << std::endl;
-		}
-		
+		std::cout << "[ " << ( 100 * y / width ) << " % ]\n";
+
 		for( int x = 0; x < width; ++x ){
 			const int pixelIndex = ( width - y - 1 ) * length + x;
 
 			// 1ピクセルをサブピクセルに分割して計算処理
 			for( int sWidth = 0; sWidth < pixelDivNum; ++sWidth ){
 				for( int sLength = 0; sLength < pixelDivNum; ++sLength ){
-					Color radiance;
+					Color accRadiance;
 
 					// サブピクセルに対して何度かサンプリング　平均値をとるため
 					for( int s = 0; s < sampleNum; ++s ){
@@ -76,13 +73,14 @@ void Render( const int length, const int width ){
 						const Vector3 rayDir = ( screenPos - cameraPos ).NormalizedVector();
 
 						// 最終的な放射輝度
-						radiance = radiance + Radiance( Ray( cameraPos, rayDir ), rnd, pixelDivNum * pixelDivNum );
+						accRadiance = accRadiance + Radiance( Ray( cameraPos, rayDir ), rnd, 0 ) / ( sampleNum * pixelDivNum * pixelDivNum );
 					}
-					pixelData[pixelIndex] = pixelData[pixelIndex] + radiance;
+					pixelData[pixelIndex] = pixelData[pixelIndex] + accRadiance;
 				}
 			}
 		}
 	}
 
 	GeneratePpmFile( pixelData, length, width );
+	delete[] pixelData;
 }

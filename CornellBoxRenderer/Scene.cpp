@@ -15,7 +15,7 @@ std::vector<Sphere> Scene::spheres{
 	Sphere( 15,  Vector3( 50, 90, 81.6 ),		   Color( 36, 36, 36 ), Color( 0.99, 0.99, 0.99 ) ) // 照明
 };
 
-bool Scene::IntersectToScene( const Ray& ray, std::shared_ptr<Intersection> const its ){
+bool Scene::IntersectToScene( const Ray& ray, Intersection* its ){
 
 	its->distance = Constant::INF;
 

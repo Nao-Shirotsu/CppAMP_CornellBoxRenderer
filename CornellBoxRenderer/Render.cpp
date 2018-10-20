@@ -34,10 +34,6 @@ void Render( const int length, const int width ){
 	// パストレーシングで用いる乱数生成器
 	RandomGenerator rnd;
 
-	// 描画の進行度
-	int renderedPersent = 0;
-	std::cout << "Now rendering... \n";
-
 	// 1ピクセルに対するn*n分割数(スーパーサンプリング) = サブピクセル数
 	constexpr int pixelDivNum = 2;
 

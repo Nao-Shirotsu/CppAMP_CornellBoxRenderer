@@ -31,8 +31,9 @@ void Render( const int length, const int width ){
 	// 出力画像データをピクセル単位で保存するバッファ
 	Color* pixelData = new Color[length * width];
 
-	// パストレーシングで用いる乱数生成器
-	RandomGenerator rnd;
+	// 描画の進行度
+	int renderedPersent = 0;
+	std::cout << "Now rendering... \n";
 
 	// 1ピクセルに対するn*n分割数(スーパーサンプリング) = サブピクセル数
 	constexpr int pixelDivNum = 2;
@@ -43,9 +44,14 @@ void Render( const int length, const int width ){
 	// 1サブピクセルに対するサンプリング回数
 	constexpr int sampleNum = 4;
 
-// #pragma omp parallel for schedule(dynamic, 1) num_threads(4)
+	// メインの計算処理
+	#pragma omp parallel for schedule(dynamic, 1) num_threads(4)
 	for( int y = 0; y < width; ++y ){
-		std::cout << "[ " << ( 100 * y / width ) << " % ]\n";
+		if( int persent = double( y ) / width * 100.0; persent > renderedPersent ){
+			std::cout << "[ " << persent << " % ]\n";
+			renderedPersent = persent;
+		}
+		RandomGenerator rnd;
 
 		for( int x = 0; x < width; ++x ){
 			const int pixelIndex = ( width - y - 1 ) * length + x;

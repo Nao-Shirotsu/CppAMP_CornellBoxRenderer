@@ -10,7 +10,6 @@
 
 namespace{
 
-const Color BGCOLOR( 0.0, 0.0, 0.0 );
 constexpr int DEPTH = 5; //ロシアンルーレットの最低保証回数
 constexpr int DEPTHLIMIT = 64;
 
@@ -21,7 +20,7 @@ Color Radiance( const Ray& ray, const RandomGenerator& rnd, const int depth ){
 
 	// シーン内の何にも交差しなかった時
 	if( !Scene::IntersectToScene( ray, &its ) ){
-		return BGCOLOR;
+		return Vector3( 0.0, 0.0, 0.0 );
 	}
 
 	const Sphere& currentObj = Scene::spheres[its.intersectedID];

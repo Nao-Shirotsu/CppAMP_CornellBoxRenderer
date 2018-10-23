@@ -39,7 +39,7 @@ Color Radiance( const Ray& ray, const RandomGenerator& rnd, const int depth ){
 	}
 
 	// 普通にロシルレをする時
-	if( depth > DEPTH && rnd() >= rusRouletteProbability ){
+	if( depth > DEPTH && rnd() > rusRouletteProbability ){
 		
 		return currentObj.emission;
 	}

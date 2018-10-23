@@ -12,13 +12,13 @@
 // length = 横幅 = x,  width = 縦幅 = y
 void Render( const int length, const int width ){
 	// カメラ設定
-	const Vector3 cameraPos( 50.0, 52.0, 220.0 );
-	const Vector3 cameraDirFront = Vector3( 0.0, -0.04, -1.0 ).NormalizedVector();
+	const Vector3 cameraPos( 0.0, 0.0, -49.0 );
+	const Vector3 cameraDirFront = Vector3( 0.0, 0.0, 1.0 ).NormalizedVector();
 	const Vector3 cameraDirUp( 0.0, 1.0, 0.0 );
 
 	// スクリーン幅
-	const double screenLength = 30.0 * length / width;
-	constexpr double screenWidth = 30.0;
+	const double screenLength = 62.0 * length / width;
+	constexpr double screenWidth = 62.0;
 
 	// カメラ～スクリーン距離
 	constexpr double distanceCamToScr = 40.0;
@@ -35,7 +35,7 @@ void Render( const int length, const int width ){
 	int renderedPersent = 0;
 	std::cout << "Now rendering... \n";
 
-	// 1ピクセルに対するn*n分割数(スーパーサンプリング) = サブピクセル数
+	// 1ピクセルに対する分割数(スーパーサンプリング数) n*n = サブピクセル数
 	constexpr int pixelDivNum = 2;
 
 	// pixelDivNumの逆数
@@ -44,16 +44,17 @@ void Render( const int length, const int width ){
 	// 1サブピクセルに対するサンプリング回数
 	constexpr int sampleNum = 4;
 
-	// メインの計算処理
+	// メインの計算処理 OpenMPで並列処理
 	#pragma omp parallel for schedule(dynamic, 1) num_threads(4)
 	for( int y = 0; y < width; ++y ){
 		if( int persent = double( y ) / width * 100.0; persent > renderedPersent ){
 			std::cout << "[ " << persent << " % ]\n";
 			renderedPersent = persent;
 		}
+
 		RandomGenerator rnd;
 
-		for( int x = 0; x < width; ++x ){
+		for( int x = 0; x < length; ++x ){
 			const int pixelIndex = ( width - y - 1 ) * length + x;
 
 			// 1ピクセルをサブピクセルに分割して計算処理
@@ -67,9 +68,9 @@ void Render( const int length, const int width ){
 						const double r2 = sWidth * invPixelDivNum + invPixelDivNum / 2.0;
 
 						// スクリーン上におけるこのピクセルの位置
-						const Vector3 screenPos = screenCenter
-							+ screenX * ( ( r1 + x ) / length - 0.5 )
-							+ screenY * ( ( r2 + y ) / width - 0.5 );
+						const Vector3 screenPos = screenCenter + 
+												  screenX * ( ( r1 + x ) / length - 0.5 ) +
+												  screenY * ( ( r2 + y ) / width - 0.5 );
 
 						// レイを飛ばす方向
 						const Vector3 rayDir = ( screenPos - cameraPos ).NormalizedVector();

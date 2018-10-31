@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <memory>
+#include <amp.h>
 
 #include "Render.hpp"
 #include "Vector.hpp"
@@ -13,7 +14,7 @@
 // width = 縦幅 = y
 // pixelDivNum = 1ピクセルに対する分割数 n*n = サブピクセル数
 // sampleNum = 1サブピクセルに対するサンプリング回数
-void Render( const int length, const int width, const int pixelDivNum, const int sampleNum ){
+void RenderImage( const int length, const int width, const int pixelDivNum, const int sampleNum ){
 	// カメラ設定
 	const Vector3 cameraPos( 0.0, 0.0, -49.0 );
 	const Vector3 cameraDirFront = Vector3( 0.0, 0.0, 1.0 ).NormalizedVector();
@@ -46,7 +47,7 @@ void Render( const int length, const int width, const int pixelDivNum, const int
 	for( int y = 0; y < width; ++y ){
 
 		// 描画進行度の表示
-		if( int persent = double( y ) / width * 100.0; persent > renderedPersent ){
+		if( int persent = static_cast< int >( double( y ) / width * 100.0 ); persent > renderedPersent ){
 			std::cout << "[ " << persent << " % ]\n";
 			renderedPersent = persent;
 		}

@@ -4,6 +4,7 @@ Release/
 packages/
 VectorTest/
 edupt/
+AMPtest/
 cornell_box.ppm
 
 CornellBoxRenderer/*

@@ -9,8 +9,11 @@
 #include "Radiance.hpp"
 #include "PPMhandler.hpp"
 
-// length = 横幅 = x,  width = 縦幅 = y
-void Render( const int length, const int width ){
+// length = 横幅 = x
+// width = 縦幅 = y
+// pixelDivNum = 1ピクセルに対する分割数 n*n = サブピクセル数
+// sampleNum = 1サブピクセルに対するサンプリング回数
+void Render( const int length, const int width, const int pixelDivNum, const int sampleNum ){
 	// カメラ設定
 	const Vector3 cameraPos( 0.0, 0.0, -49.0 );
 	const Vector3 cameraDirFront = Vector3( 0.0, 0.0, 1.0 ).NormalizedVector();
@@ -35,14 +38,8 @@ void Render( const int length, const int width ){
 	int renderedPersent = 0;
 	std::cout << "Now rendering... \n";
 
-	// 1ピクセルに対する分割数(スーパーサンプリング数) n*n = サブピクセル数
-	constexpr int pixelDivNum = 4;
-
 	// pixelDivNumの逆数
-	constexpr double invPixelDivNum = 1.0 / pixelDivNum;
-
-	// 1サブピクセルに対するサンプリング回数
-	constexpr int sampleNum = 6;
+	const double invPixelDivNum = 1.0 / pixelDivNum;
 
 	// メインの計算処理 OpenMPで並列処理
 	#pragma omp parallel for schedule(dynamic, 1) num_threads(4)

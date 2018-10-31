@@ -8,7 +8,7 @@ namespace Constant{
 constexpr double PI = 3.14159265358979323846;
 
 // 無限
-constexpr double INF = 1e200;
+constexpr double INF = 1e128;
 
 // 0に近い数
 constexpr double MIN0 = 1e-6;

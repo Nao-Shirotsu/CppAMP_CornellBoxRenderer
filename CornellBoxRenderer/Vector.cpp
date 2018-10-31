@@ -1,8 +1,9 @@
-#include <cmath>
+﻿#include <cmath>
 
 #include "Vector.hpp"
 
-Vector3::Vector3() = default;
+Vector3::Vector3():
+	x( 0 ), y( 0 ), z( 0 ){}
 
 Vector3::Vector3( const double x_, const double y_, const double z_ ):
 	x( x_ ), y( y_ ), z( z_ ){}

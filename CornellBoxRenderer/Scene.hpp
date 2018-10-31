@@ -9,11 +9,10 @@
 // 実際に描画するシーン情報のクラス
 class Scene{
 public:
-	Scene();
-
 	// シーン内に存在するオブジェクト全てと1つのRayの交差判定
-	bool IntersectAll( const Ray& ray, std::shared_ptr<Intersection> const its ) const;
+	// レイの始点に最も近いオブジェクトとの交差点情報をitsに渡す実体に保存
+	static bool IntersectToScene( const Ray& ray, Intersection* its );
 	
 	// シーン内に存在する球オブジェクト全て
-	std::vector<Sphere> spheres;
+	static std::vector<Sphere> spheres;
 };

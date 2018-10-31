@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <random>
 #include <memory>
 
@@ -6,7 +6,7 @@ class RandomGenerator{
 public:
 	RandomGenerator();
 
-	// 0.0~1.0�͈̔͂ŗ�����Ԃ�
+	// 0.0~1.0の範囲で乱数を返す
 	double operator()() const;
 
 private:

@@ -20,7 +20,7 @@ Color Radiance( const Ray& ray, const RandomGenerator& rnd, const int depth ){
 
 	// シーン内の何にも交差しなかった時
 	if( !Scene::IntersectToScene( ray, &its ) ){
-		return Vector3( 0.0, 0.0, 0.0 );
+		return Color( 0.0, 0.0, 0.0 );
 	}
 
 	const Sphere& currentObj = Scene::spheres[its.intersectedID];
@@ -40,16 +40,12 @@ Color Radiance( const Ray& ray, const RandomGenerator& rnd, const int depth ){
 
 	// 普通にロシルレをする時
 	if( depth > DEPTH && rnd() > rusRouletteProbability ){
-		
 		return currentObj.emission;
 	}
 	else{
 		// ロシルレ実行されない時
 		rusRouletteProbability = 1.0;
 	}
-
-	Color incomingRadiance;
-	Color weight( 1.0, 0.0, 0.0 );
 
 	// 完全拡散面のRay反射処理
 	// u, v, wは反射した後のRayを求めるための正規直交基底
@@ -70,12 +66,13 @@ Color Radiance( const Ray& ray, const RandomGenerator& rnd, const int depth ){
 	const double r2 = rnd();
 	const double rootR2 = std::sqrt( r2 );
 
+	// ある面で反射したRayの飛んでいく方向
 	Vector3 dir = ( u * std::cos( r1 ) * rootR2 +
 					v * std::sin( r1 ) * rootR2 +
 					w * std::sqrt( 1.0 - r2 ) ).NormalizedVector();
 
-	incomingRadiance = Radiance( Ray( hitpoint.pos, dir ), rnd, depth + 1 );
-	weight = currentObj.color / rusRouletteProbability;
+	Color incomingRadiance = Radiance( Ray( hitpoint.pos, dir ), rnd, depth + 1 );
+	Color weight = currentObj.color / rusRouletteProbability;
 
 	return Vector3( currentObj.emission.x + weight.x * incomingRadiance.x,
 					currentObj.emission.y + weight.y * incomingRadiance.y,

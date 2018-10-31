@@ -1,7 +1,7 @@
 ﻿#include "Render.hpp"
 
 int main(){
-	Render( 640, 480 );
+	Render( 320, 240 );
 
 	return 0;
 }

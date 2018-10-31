@@ -19,6 +19,8 @@ struct Vector3{
 
 	// ベクトル同士の加減算　同上
 	Vector3 operator+( const Vector3& vec ) const;
+
+
 	Vector3 operator-( const Vector3& vec ) const;
 
 	// スカラー乗除算 (v/2 のように右側にスカラー)

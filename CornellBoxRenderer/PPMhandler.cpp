@@ -5,8 +5,8 @@
 
 #include "PPMhandler.hpp"
 
-void GeneratePpmFile( const Color* color, const int length, const int width ){
-	std::ofstream ofs( "../cornell_box.ppm" );
+void GeneratePpmFile( const std::string& filename, const Color* color, const int length, const int width ){
+	std::ofstream ofs( filename );
 
 	if( !ofs ){
 		std::exit( 1 );

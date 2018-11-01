@@ -119,6 +119,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CameraInfo.cpp" />
+    <ClCompile Include="ImageResolution.cpp" />
     <ClCompile Include="Intersection.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PPMhandler.cpp" />
@@ -127,11 +129,14 @@
     <ClCompile Include="Ray.cpp" />
     <ClCompile Include="Render.cpp" />
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="ScreenInfo.cpp" />
     <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="Vector.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CameraInfo.hpp" />
     <ClInclude Include="Constant.hpp" />
+    <ClInclude Include="ImageResolution.hpp" />
     <ClInclude Include="Intersection.hpp" />
     <ClInclude Include="PPMhandler.hpp" />
     <ClInclude Include="Radiance.hpp" />
@@ -140,6 +145,7 @@
     <ClInclude Include="Color.hpp" />
     <ClInclude Include="Render.hpp" />
     <ClInclude Include="Scene.hpp" />
+    <ClInclude Include="ScreenInfo.hpp" />
     <ClInclude Include="Sphere.hpp" />
     <ClInclude Include="Vector.hpp" />
   </ItemGroup>

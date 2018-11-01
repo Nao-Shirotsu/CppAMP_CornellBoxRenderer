@@ -1,12 +1,12 @@
 ﻿#include "Render.hpp"
+#include "CameraInfo.hpp"
+#include "ScreenInfo.hpp"
+#include "ImageResolution.hpp"
 
 int main(){
-	RenderImage( 320, 240, 3, 3 );
-}
+	Camera camera;
+	ImageResolution image( 320, 240, 2, 4 );
+	Screen screen( image, camera );
 
-// 改善点リスト
-//
-// ・カメラ&スクリーン設定とシーン設定が別々なのがだるすぎる。
-// ・Intersect系がいろんなところに散らばっててだるい。
-// ・引数でﾎﾟｲﾝﾀか参照渡して関数内でそれを変更するの、だるい。
-// ・生ポよりｽﾏﾎﾟ
+	RenderImage( "..\\image.ppm", image, camera, screen );
+}

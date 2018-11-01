@@ -31,6 +31,15 @@
     <ClCompile Include="Radiance.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="CameraInfo.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageResolution.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="ScreenInfo.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PPMhandler.hpp">
@@ -64,6 +73,15 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="Radiance.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraInfo.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="ScreenInfo.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageResolution.hpp">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

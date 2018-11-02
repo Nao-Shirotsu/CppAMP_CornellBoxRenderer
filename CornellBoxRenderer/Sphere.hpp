@@ -5,6 +5,8 @@
 #include "Intersection.hpp"
 #include "Ray.hpp"
 
+namespace CBR{
+
 // 幾何的に3次元空間で表現する光を完全拡散する球
 class Sphere{
 public:
@@ -26,3 +28,5 @@ public:
 	// 反射率
 	Color color;
 };
+
+}

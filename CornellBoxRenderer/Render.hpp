@@ -1,7 +1,13 @@
 ﻿#pragma once
+#include <string>
 
-// length = 横幅 = x
-// width = 縦幅 = y
-// pixelDivNum = 1ピクセルに対する分割数 n*n = サブピクセル数
-// sampleNum = 1サブピクセルに対するサンプリング回数
-void Render( const int length, const int width, const int pixelDivNum, const int sampleNum );
+#include "Camera.hpp"
+#include "Screen.hpp"
+#include "ImageResolution.hpp"
+
+namespace CBR{
+
+// CornellBoxを表現する画像を描き出す
+void RenderImage( const std::string& filename, const ImageResolution& image, const Camera& camera );
+
+}

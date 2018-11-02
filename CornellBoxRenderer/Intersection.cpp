@@ -3,6 +3,8 @@
 #include "Intersection.hpp"
 #include "Constant.hpp"
 
+namespace CBR{
+
 Intersection::Intersection():
 	distance( Constant::INF ),
 	normalVec(),
@@ -17,4 +19,6 @@ Intersection& Intersection::operator=( const Intersection& rIts ){
 		intersectedID = rIts.intersectedID;
 	}
 	return *this;
+}
+
 }

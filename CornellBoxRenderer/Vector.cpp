@@ -2,10 +2,12 @@
 
 #include "Vector.hpp"
 
+namespace CBR{
+
 Vector3::Vector3():
 	x( 0 ), y( 0 ), z( 0 ){}
 
-Vector3::Vector3( const double x_, const double y_, const double z_ ):
+Vector3::Vector3( const double x_, const double y_, const double z_ ) :
 	x( x_ ), y( y_ ), z( z_ ){}
 
 Vector3::Vector3( const Vector3& vec ) :
@@ -31,7 +33,7 @@ Vector3 Vector3::operator-( const Vector3 & vec ) const{
 }
 
 Vector3 Vector3::operator/( const double num ) const{
-	return Vector3( x / num, y/num, z/num );
+	return Vector3( x / num, y / num, z / num );
 }
 
 Vector3 Vector3::operator*( const double num ) const{
@@ -59,4 +61,6 @@ Vector3 Cross( const Vector3& a, const Vector3& b ){
 	return Vector3( a.y * b.z - a.z * b.y,
 		a.z * b.x - a.x * b.z,
 		a.x * b.y - a.y * b.x );
+}
+
 }

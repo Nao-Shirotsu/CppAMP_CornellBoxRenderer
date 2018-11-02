@@ -1,5 +1,5 @@
 ﻿#include <iostream>
-#include <memory>
+#include <string>
 
 #include "Render.hpp"
 #include "Vector.hpp"
@@ -8,73 +8,59 @@
 #include "Ray.hpp"
 #include "Radiance.hpp"
 #include "PPMhandler.hpp"
+#include "Camera.hpp"
+#include "Screen.hpp"
+#include "ImageResolution.hpp"
 
-// length = 横幅 = x
-// width = 縦幅 = y
-// pixelDivNum = 1ピクセルに対する分割数 n*n = サブピクセル数
-// sampleNum = 1サブピクセルに対するサンプリング回数
-void Render( const int length, const int width, const int pixelDivNum, const int sampleNum ){
-	// カメラ設定
-	const Vector3 cameraPos( 0.0, 0.0, -49.0 );
-	const Vector3 cameraDirFront = Vector3( 0.0, 0.0, 1.0 ).NormalizedVector();
-	const Vector3 cameraDirUp( 0.0, 1.0, 0.0 );
+namespace CBR{
 
-	// スクリーン幅
-	const double screenLength = 62.0 * length / width;
-	constexpr double screenWidth = 62.0;
-
-	// カメラ～スクリーン距離
-	constexpr double distanceCamToScr = 40.0;
-
-	// スクリーン設定
-	const Vector3 screenX = Cross( cameraDirFront, cameraDirUp ).NormalizedVector() * screenLength;
-	const Vector3 screenY = Cross( screenX, cameraDirFront ).NormalizedVector() * screenWidth;
-	const Vector3 screenCenter = cameraPos + cameraDirFront * distanceCamToScr;
+void RenderImage( const std::string& filename, const ImageResolution& image, const Camera& camera ){
+	const Screen screen( image, camera );
 
 	// 出力画像データをピクセル単位で保存するバッファ
-	Color* pixelData = new Color[length * width];
+	Color* pixelData = new Color[image.x * image.y];
 
 	// 描画の進行度
 	int renderedPersent = 0;
-	std::cout << "Now rendering... \n";
+	std::cout << filename << "\nNow rendering... \n";
 
-	// pixelDivNumの逆数
-	const double invPixelDivNum = 1.0 / pixelDivNum;
+	// image.pixelDivNumの逆数
+	const double invPixelDivNum = 1.0 / image.pixelDivNum;
 
 	// メインの計算処理 OpenMPで並列処理
-	#pragma omp parallel for schedule(dynamic, 1) num_threads(4)
-	for( int y = 0; y < width; ++y ){
+#pragma omp parallel for schedule(dynamic, 1) num_threads(4)
+	for( int y = 0; y < image.y; ++y ){
 
 		// 描画進行度の表示
-		if( int persent = double( y ) / width * 100.0; persent > renderedPersent ){
+		if( int persent = static_cast< int >( double( y ) / image.y * 100.0 ); persent > renderedPersent ){
 			std::cout << "[ " << persent << " % ]\n";
 			renderedPersent = persent;
 		}
 
 		RandomGenerator rnd;
 
-		for( int x = 0; x < length; ++x ){
-			const int pixelIndex = ( width - y - 1 ) * length + x;
+		for( int x = 0; x < image.x; ++x ){
+			const int pixelIndex = ( image.y - y - 1 ) * image.x + x;
 			Color&& accRadiance = Color();
 
 			// 1ピクセルをサブピクセルに分割して計算処理
-			for( int subY = 0; subY < pixelDivNum; ++subY ){
-				for( int subX = 0; subX < pixelDivNum; ++subX ){
+			for( int subY = 0; subY < image.pixelDivNum; ++subY ){
+				for( int subX = 0; subX < image.pixelDivNum; ++subX ){
 					// サブピクセルに対して何度かサンプリング　平均値をとるため
-					for( int s = 0; s < sampleNum; ++s ){
+					for( int s = 0; s < image.sampleNum; ++s ){
 						const double r1 = subX * invPixelDivNum + invPixelDivNum / 2.0;
 						const double r2 = subY * invPixelDivNum + invPixelDivNum / 2.0;
 
 						// スクリーン上におけるこのピクセルの位置
-						const Vector3 screenPos = screenCenter + 
-												  screenX * ( ( r1 + x ) / length - 0.5 ) +
-												  screenY * ( ( r2 + y ) / width - 0.5 );
+						const Vector3 pixelPos = screen.GetCenter() +
+							screen.GetXvec() * ( ( r1 + x ) / image.x - 0.5 ) +
+							screen.GetYvec() * ( ( r2 + y ) / image.y - 0.5 );
 
 						// レイを飛ばす方向
-						const Vector3 rayDir = ( screenPos - cameraPos ).NormalizedVector();
+						const Vector3 rayDir = ( pixelPos - camera.pos ).NormalizedVector();
 
 						// 最終的な放射輝度
-						accRadiance = accRadiance + Radiance( Ray( cameraPos, rayDir ), rnd, 0 ) / ( sampleNum * pixelDivNum * pixelDivNum );
+						accRadiance = accRadiance + Radiance( Ray( camera.pos, rayDir ), rnd, 0 ) / ( image.sampleNum * image.pixelDivNum * image.pixelDivNum );
 					}
 				}
 			}
@@ -82,6 +68,8 @@ void Render( const int length, const int width, const int pixelDivNum, const int
 		}
 	}
 
-	GeneratePpmFile( pixelData, length, width );
+	GeneratePpmFile( filename, pixelData, image.x, image.y );
 	delete[] pixelData;
+}
+
 }

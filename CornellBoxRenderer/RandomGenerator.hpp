@@ -2,6 +2,8 @@
 #include <random>
 #include <memory>
 
+namespace CBR{
+
 class RandomGenerator{
 public:
 	RandomGenerator();
@@ -13,3 +15,5 @@ private:
 	std::unique_ptr<std::mt19937> engine;
 	std::unique_ptr<std::uniform_real_distribution<>> distRnd;
 };
+
+}

@@ -4,20 +4,20 @@
 Visual C++でパストレーシング法というレンダリング手法を用いて       
 コーネルボックスが描画されたppm形式画像を出力します。     
 These C++ codes create a .ppm image that a 3D cornell box renders with the Path-tracing.     
-     
-     
+----------------
+
 ### ビルド Build
 C++17対応コンパイラでビルドできます。一部OpenMPを利用していますので、コンパイル時には各種オプションをお付けください。    
 Visual Studioを使用する場合は後述のプロジェクトファイルを読み込み、ビルドできます。     
 You can build with any C++ compiler that can handle C++17.     
 Source codes need only standard library and compiling option for the OpenMP, so please put it.     
 If you use Visual Studio, Please load the project file and build.     
-     
-     
+----------------
+
 ### ソースコード Source codes
 CornellBoxRendererディレクトリ下に全てのソースコードとVisual Studioプロジェクトファイルがあります。     
 You can find all C++ source and .vcxproj files under the CornellBoxRenderer directory.     
-     
+----------------
      
 ### 使い方 How to use
 以下のコードで画像を描き出します。     
@@ -33,7 +33,7 @@ int main(){
 	CBR::RenderImage( "..\\CBfront.ppm", image, camera );
 }
 ```     
-     
+----------------
      
 ### 各クラス/関数の説明 Description of each class and function
 `CBR::ImageResolution image( 320, 240, 2, 4 );`     

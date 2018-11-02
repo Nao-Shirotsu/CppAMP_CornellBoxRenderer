@@ -53,4 +53,4 @@ camera.SetDirectionUp( 0.75, 1.0, 0.0 );
 ```     
 *****
 `CBR::RenderImage( "..\\CBfront.ppm", image, camera );`     
-Implementation of rendering. you need to hand the two instances as 2nd and 3rd parameters.     
+Implementation of rendering. you need to hand filepath and the two instances as 2nd and 3rd parameters.

@@ -1,4 +1,4 @@
-# CornellBoxRenderer [In development]
+# CornellBoxRenderer
 
 ### 概要 Overview
 
@@ -16,3 +16,4 @@ If you use Visual Studio, Please load the project file and build.
 ### ソースコード Source codes
 CornellBoxRendererディレクトリ下に全てのソースコードとVisual Studioプロジェクトファイルがあります。     
 You can find all C++ source and .vcxproj files under the CornellBoxRenderer directory.
+

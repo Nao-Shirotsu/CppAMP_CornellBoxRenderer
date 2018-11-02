@@ -37,10 +37,11 @@ int main(){
      
 ### 各クラス/関数の説明 Description of each class and function
 `CBR::ImageResolution image( 320, 240, 2, 4 );`     
-[1st parameter] x (length) of resolotion of an image     
-[2nd parameter] y (width) of resolotion of an image     
-[3rd parameter] number of subpixels N : this program calculates color of one pixel divided N*N subpixels     
-[4th parameter] number of sampling times by one subpixel     
+_1st parameter_ x (length) of resolotion of an image     
+_2nd parameter_ y (width) of resolotion of an image     
+_3rd parameter_ number of subpixels N : this program calculates color of one pixel divided N*N subpixels     
+_4th parameter_ number of sampling times by one subpixel     
+If 3rd and 4th parameters are greater, created images get more beautiful and clean
 *****
 `CBR::Camera camera;`     
 This sentence initializes a camera instance which looks 3D space.     

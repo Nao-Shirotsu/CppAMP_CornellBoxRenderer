@@ -28,7 +28,9 @@ void RenderImage( const std::string& filename, const ImageResolution& image, con
 	const double invPixelDivNum = 1.0 / image.pixelDivNum;
 
 	// メインの計算処理 OpenMPで並列処理
+#ifdef _OPENMP
 #pragma omp parallel for schedule(dynamic, 1) num_threads(4)
+#endif
 	for( int y = 0; y < image.y; ++y ){
 
 		// 描画進行度の表示

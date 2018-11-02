@@ -3,7 +3,8 @@
 ### 概要 Overview
 Visual C++でパストレーシング法というレンダリング手法を用いて       
 コーネルボックスが描画されたppm形式画像を出力します。     
-These C++ codes create a .ppm image that a 3D cornell box renders with a ray-tracing method called path-tracing.
+These C++ codes create a .ppm image that a 3D cornell box renders with a ray-tracing method called path-tracing.     
+![Cornell Box 1](https://imgur.com/a/ZGbfPYD) ![Cornell Box 2](https://imgur.com/a/K8J5KfZ)
 *****
 
 ### ビルド Build

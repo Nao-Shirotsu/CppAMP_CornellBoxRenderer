@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+namespace CBR{
+
 // 画像の解像度, サンプリング回数などを管理する構造体
 struct ImageResolution{
 	ImageResolution( const int x, const int y, const int pixelDivNum, const int sampleNum );
@@ -16,3 +18,5 @@ struct ImageResolution{
 
 
 };
+
+}

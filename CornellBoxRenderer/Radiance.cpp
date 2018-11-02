@@ -15,6 +15,8 @@ constexpr int DEPTHLIMIT = 64;
 
 }
 
+namespace CBR{
+
 Color Radiance( const Ray& ray, const RandomGenerator& rnd, const int depth ){
 	Intersection its;
 
@@ -26,7 +28,7 @@ Color Radiance( const Ray& ray, const RandomGenerator& rnd, const int depth ){
 	const Sphere& currentObj = Scene::spheres[its.intersectedID];
 	const Intersection& hitpoint = its;
 	const Vector3 orientingNormalVec =
-		( Dot( hitpoint.normalVec, ray.dir ) < 0.0 )?
+		( Dot( hitpoint.normalVec, ray.dir ) < 0.0 ) ?
 		hitpoint.normalVec :
 		-1.0 * hitpoint.normalVec;
 
@@ -61,20 +63,22 @@ Color Radiance( const Ray& ray, const RandomGenerator& rnd, const int depth ){
 	}
 
 	v = Cross( w, u );
-	
+
 	const double r1 = 2.0 * Constant::PI * rnd();
 	const double r2 = rnd();
 	const double rootR2 = std::sqrt( r2 );
 
 	// ある面で反射したRayの飛んでいく方向
 	Vector3 dir = ( u * std::cos( r1 ) * rootR2 +
-					v * std::sin( r1 ) * rootR2 +
-					w * std::sqrt( 1.0 - r2 ) ).NormalizedVector();
+		v * std::sin( r1 ) * rootR2 +
+		w * std::sqrt( 1.0 - r2 ) ).NormalizedVector();
 
 	Color incomingRadiance = Radiance( Ray( hitpoint.pos, dir ), rnd, depth + 1 );
 	Color weight = currentObj.color / rusRouletteProbability;
 
 	return Vector3( currentObj.emission.x + weight.x * incomingRadiance.x,
-					currentObj.emission.y + weight.y * incomingRadiance.y,
-					currentObj.emission.z + weight.z * incomingRadiance.z );
+		currentObj.emission.y + weight.y * incomingRadiance.y,
+		currentObj.emission.z + weight.z * incomingRadiance.z );
+}
+
 }

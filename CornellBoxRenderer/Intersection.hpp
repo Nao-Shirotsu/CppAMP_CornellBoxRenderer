@@ -2,6 +2,8 @@
 
 #include "Vector.hpp"
 
+namespace CBR{
+
 // Rayと物体の交差点情報を保存する構造体
 class Intersection{
 public:
@@ -23,3 +25,5 @@ public:
 	// Scene.sphere[]の配列番号をこれに保存する
 	int intersectedID;
 };
+
+}

@@ -2,6 +2,8 @@
 
 #include "Vector.hpp"
 
+namespace CBR{
+
 // ワールド座標系におけるカメラ位置などの設定
 struct Camera{
 	// デフォルト値を自動設定する
@@ -21,3 +23,5 @@ struct Camera{
 	Vector3 dirFront;
 	Vector3 dirUp;
 };
+
+}

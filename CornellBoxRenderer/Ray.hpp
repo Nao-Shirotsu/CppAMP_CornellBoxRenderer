@@ -2,6 +2,8 @@
 
 #include "Vector.hpp"
 
+namespace CBR{
+
 struct Ray{
 	// レイの始点位置ベクトルと進む方向ベクトルを渡すと、
 	// 始点ベクトルと正規化された方向ベクトルをメンバ変数に保存する
@@ -14,3 +16,5 @@ struct Ray{
 	// レイの方向を示す正規化ベクトル
 	Vector3 dir;
 };
+
+}

@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+namespace CBR{
+
 // 3次元ベクトルクラス
 // ベクトル同士の加減算,スカラーを乗除算,内積,外積,大きさの計算,正規化ができる
 struct Vector3{
@@ -42,3 +44,5 @@ Vector3 operator*( const double num, const Vector3& vec );
 // ベクトルの内積・外積
 double Dot( const Vector3& a, const Vector3& b );
 Vector3 Cross( const Vector3& a, const Vector3& b );
+
+}

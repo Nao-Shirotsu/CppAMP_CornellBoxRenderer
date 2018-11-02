@@ -2,8 +2,11 @@
 #include <cstdlib>
 #include <iostream>
 #include <cmath>
+#include <string>
 
 #include "PPMhandler.hpp"
+
+namespace CBR{
 
 void GeneratePpmFile( const std::string& filename, const Color* color, const int length, const int width ){
 	std::ofstream ofs( filename );
@@ -21,7 +24,7 @@ void GeneratePpmFile( const std::string& filename, const Color* color, const int
 	}
 
 	ofs.close();
-	std::cout << "Rendering succeeded : written to \"cornell_box.ppm\"" << std::endl;
+	std::cout << "Rendering succeeded : written to " << filename << std::endl;
 }
 
 int ToPixelValue( double n ){
@@ -34,4 +37,6 @@ int ToPixelValue( double n ){
 	}
 
 	return int( std::pow( n, 1.0 / 2.2 ) * 255 );
+}
+
 }

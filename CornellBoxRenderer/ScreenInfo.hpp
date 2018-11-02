@@ -4,13 +4,12 @@
 #include "ImageResolution.hpp"
 #include "CameraInfo.hpp"
 
+namespace CBR{
+
 // ワールド座標系でのスクリーン情報
 class Screen{
 public:
 	Screen( const ImageResolution& image, const Camera& camera );
-
-	// 値を変更したいとき用のSetter
-	void Reset( const ImageResolution& image, const Camera& camera );
 
 	// Getter
 	Vector3 GetXvec() const;
@@ -30,3 +29,5 @@ private:
 	Vector3 verticalVec;
 	Vector3 centerPos;
 };
+
+}

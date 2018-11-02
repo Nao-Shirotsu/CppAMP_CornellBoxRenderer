@@ -1,7 +1,10 @@
 ﻿#include "ImageResolution.hpp"
+namespace CBR{
 
-ImageResolution::ImageResolution( const int x, const int y, const int pixelDivNum, const int sampleNum ):
-	x( 320 ), 
-	y( 240 ),
-	pixelDivNum( 2 ),
-	sampleNum( 4 ){}
+ImageResolution::ImageResolution( const int x_, const int y_, const int pixelDivNum_, const int sampleNum_ ):
+	x( x_ ),
+	y( y_ ),
+	pixelDivNum( pixelDivNum_ ),
+	sampleNum( sampleNum_ ){}
+
+}

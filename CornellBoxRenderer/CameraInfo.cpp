@@ -1,6 +1,8 @@
 ﻿#include "CameraInfo.hpp"
 #include "Vector.hpp"
 
+namespace CBR{
+
 Camera::Camera():
 	pos( 0.0, 0.0, -49.0 ),
 	dirFront( 0.0, 0.0, 1.0 ),
@@ -18,4 +20,6 @@ void Camera::SetDirectionFront( const double x, const double y, const double z )
 
 void Camera::SetDirectionUp( const double x, const double y, const double z ){
 	dirUp = Vector3( x, y, z ).NormalizedVector();
+}
+
 }

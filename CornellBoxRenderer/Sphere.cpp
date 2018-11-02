@@ -3,6 +3,8 @@
 #include "Sphere.hpp"
 #include "Constant.hpp"
 
+namespace CBR{
+
 Sphere::Sphere( const double radius_, const Vector3 & pos_, const Color & emission_, const Color & color_ ):
 	radius( radius_ ),
 	pos( pos_ ),
@@ -53,4 +55,6 @@ bool Sphere::Intersect( const Ray & ray, Intersection & its ) const{
 	its.normalVec = ( its.pos - pos ).NormalizedVector();
 
 	return true;
+}
+
 }

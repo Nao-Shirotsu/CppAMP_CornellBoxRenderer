@@ -12,7 +12,11 @@
 #include "ScreenInfo.hpp"
 #include "ImageResolution.hpp"
 
-void RenderImage( const std::string& filename, const ImageResolution& image, const Camera& camera, const Screen screen ){
+namespace CBR{
+
+void RenderImage( const std::string& filename, const ImageResolution& image, const Camera& camera ){
+	const Screen screen( image, camera );
+
 	// 出力画像データをピクセル単位で保存するバッファ
 	Color* pixelData = new Color[image.x * image.y];
 
@@ -24,7 +28,7 @@ void RenderImage( const std::string& filename, const ImageResolution& image, con
 	const double invPixelDivNum = 1.0 / image.pixelDivNum;
 
 	// メインの計算処理 OpenMPで並列処理
-	#pragma omp parallel for schedule(dynamic, 1) num_threads(4)
+#pragma omp parallel for schedule(dynamic, 1) num_threads(4)
 	for( int y = 0; y < image.y; ++y ){
 
 		// 描画進行度の表示
@@ -48,9 +52,9 @@ void RenderImage( const std::string& filename, const ImageResolution& image, con
 						const double r2 = subY * invPixelDivNum + invPixelDivNum / 2.0;
 
 						// スクリーン上におけるこのピクセルの位置
-						const Vector3 pixelPos = screen.GetCenter() + 
-												 screen.GetXvec() * ( ( r1 + x ) / image.x - 0.5 ) +
-												 screen.GetYvec() * ( ( r2 + y ) / image.y - 0.5 );
+						const Vector3 pixelPos = screen.GetCenter() +
+							screen.GetXvec() * ( ( r1 + x ) / image.x - 0.5 ) +
+							screen.GetYvec() * ( ( r2 + y ) / image.y - 0.5 );
 
 						// レイを飛ばす方向
 						const Vector3 rayDir = ( pixelPos - camera.pos ).NormalizedVector();
@@ -66,4 +70,6 @@ void RenderImage( const std::string& filename, const ImageResolution& image, con
 
 	GeneratePpmFile( filename, pixelData, image.x, image.y );
 	delete[] pixelData;
+}
+
 }

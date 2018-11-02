@@ -26,23 +26,30 @@ You can create an image by following code.
 #include "ImageResolution.hpp"
 
 int main(){
-  // defines resolution of an image you want to create.
 	CBR::ImageResolution image( 320, 240, 2, 4 ); 
-  
-  // initialize a camera that looks 3D space
 	CBR::Camera camera;
-  
-  // rendering
 	CBR::RenderImage( "..\\CBfront.ppm", image, camera );
 }
 ```
 
-各クラス/関数の説明
-Description of each class and function:
+**各クラス/関数の説明**
+**Description of each class and function:**
 
-`CBR::ImageResolution image( 320, 240, 2, 4 );`
-  [1st parameter] x (length) of resolotion of an image
-  [2nd parameter] y (width) of resolotion of an image
-  [3rd parameter] number of subpixels N : this program calculates color of one pixel divided N*N subpixels
-  [4th parameter] number of sampling times by one subpixel
+`CBR::ImageResolution image( 320, 240, 2, 4 );`     
+[1st parameter] x (length) of resolotion of an image     
+[2nd parameter] y (width) of resolotion of an image     
+[3rd parameter] number of subpixels N : this program calculates color of one pixel divided N*N subpixels     
+[4th parameter] number of sampling times by one subpixel     
      
+`CBR::Camera camera;`     
+This sentence initializes a camera instance which looks 3D space.     
+You can redefine the camera. Then you need define the cameras direction to front and upside, and position.     
+```cpp
+// 3D-coodinate (x, y, z)
+camera.SetPos( -45.0, 45.0, 25.0 );
+camera.SetDirectionFront( 1.0, -0.75, -0.4 );
+camera.SetDirectionUp( 0.75, 1.0, 0.0 );
+```     
+     
+`CBR::RenderImage( "..\\CBfront.ppm", image, camera );`     
+Implementation of rendering.     

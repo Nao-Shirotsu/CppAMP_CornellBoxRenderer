@@ -1,5 +1,5 @@
 ﻿#include "Render.hpp"
-#include "CameraInfo.hpp"
+#include "Camera.hpp"
 #include "ImageResolution.hpp"
 
 int main(){

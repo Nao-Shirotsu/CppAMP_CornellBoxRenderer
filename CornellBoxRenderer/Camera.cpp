@@ -1,4 +1,4 @@
-﻿#include "CameraInfo.hpp"
+﻿#include "Camera.hpp"
 #include "Vector.hpp"
 
 namespace CBR{

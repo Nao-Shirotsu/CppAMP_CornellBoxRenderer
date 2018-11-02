@@ -1,8 +1,8 @@
 ﻿#pragma once
 #include <string>
 
-#include "CameraInfo.hpp"
-#include "ScreenInfo.hpp"
+#include "Camera.hpp"
+#include "Screen.hpp"
 #include "ImageResolution.hpp"
 
 namespace CBR{

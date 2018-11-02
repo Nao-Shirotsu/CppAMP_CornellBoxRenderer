@@ -1,4 +1,4 @@
-﻿#include "ScreenInfo.hpp"
+﻿#include "Screen.hpp"
 #include "Vector.hpp"
 
 namespace CBR{

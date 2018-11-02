@@ -2,7 +2,7 @@
 
 #include "Vector.hpp"
 #include "ImageResolution.hpp"
-#include "CameraInfo.hpp"
+#include "Camera.hpp"
 
 namespace CBR{
 

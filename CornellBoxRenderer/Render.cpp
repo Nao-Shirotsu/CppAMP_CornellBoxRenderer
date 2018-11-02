@@ -8,8 +8,8 @@
 #include "Ray.hpp"
 #include "Radiance.hpp"
 #include "PPMhandler.hpp"
-#include "CameraInfo.hpp"
-#include "ScreenInfo.hpp"
+#include "Camera.hpp"
+#include "Screen.hpp"
 #include "ImageResolution.hpp"
 
 namespace CBR{

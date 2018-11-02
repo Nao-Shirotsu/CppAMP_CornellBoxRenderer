@@ -31,13 +31,13 @@
     <ClCompile Include="Radiance.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="CameraInfo.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="ImageResolution.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="ScreenInfo.cpp">
+    <ClCompile Include="Camera.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="Screen.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -75,13 +75,13 @@
     <ClInclude Include="Radiance.hpp">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="CameraInfo.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="ScreenInfo.hpp">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="ImageResolution.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="Screen.hpp">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

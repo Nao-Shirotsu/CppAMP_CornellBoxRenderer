@@ -22,5 +22,4 @@ add_executable(cbr462
 	CornellBoxRenderer/Scene.cpp
 	CornellBoxRenderer/Screen.cpp
 	CornellBoxRenderer/Sphere.cpp
-	CornellBoxRenderer/Vector.cpp
 )

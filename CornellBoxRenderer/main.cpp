@@ -12,7 +12,7 @@ int main(){
 	CBR::Camera camera;
 
 	// rendering of a picture from frontside
-	CBR::RenderImage( "..\\CBfront.ppm", image, camera );
+	CBR::RenderImage( "./CBfront.ppm", image, camera );
 
 
 	// rendering of another angle picture
@@ -20,5 +20,5 @@ int main(){
 	camera.SetDirectionFront( 1.0, -0.75, -0.4 );
 	camera.SetDirectionUp( 0.75, 1.0, 0.0 );
 
-	CBR::RenderImage( "..\\CBlookdown.ppm", image, camera );
+	CBR::RenderImage( "./CBlookdown.ppm", image, camera );
 }

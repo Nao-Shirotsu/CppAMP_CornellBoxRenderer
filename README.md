@@ -1,5 +1,5 @@
 # CornellBoxRenderer
-     
+
 ### 概要 Overview
 Visual C++でパストレーシング法というレンダリング手法を用いて       
 コーネルボックスが描画されたppm形式画像を出力します。     
@@ -11,18 +11,37 @@ These C++ codes create a .ppm image that a 3D cornell box renders with a ray-tra
 C++17対応コンパイラでビルドできます。一部OpenMPを利用していますので、コンパイル時には各種オプションをお付けください。    
 Visual Studioを使用する場合は後述のプロジェクトファイルを読み込み、ビルドできます。     
 You can build with any C++ compiler that can handle C++17.     
-Source codes need only standard library and compiling option for the OpenMP, so please put it.     
+Source codes need only standard library and compiling option for the OpenMP, so please put it.   
 If you use Visual Studio, Please load the project file and build.     
+
+#### CMake
+
+CMakeを使ってビルドできます。ルートディレクトリで以下のコマンドを入力すると、このレンダラーの実行ファイル`bin/cbr462`が生成されます。      
+
+You can build with CMake, enter following command to generate `bin/cbr462` that executes rendering.
+
+```
+$ cmake .
+$ make
+```
+
+```
+$ ./bin/cbr462
+```
+
+
+
 *****
 
 ### ソースコード Source codes
 CornellBoxRendererディレクトリ下に全てのソースコードとVisual Studioプロジェクトファイルがあります。     
 You can find all C++ source and .vcxproj files under the CornellBoxRenderer directory.     
 *****
-     
+
 ### 使い方 How to use
 以下のコードで画像を描き出します。     
 You can create an image by following code.
+
 ```cpp
 #include "Render.hpp"
 #include "Camera.hpp"
@@ -33,9 +52,9 @@ int main(){
 	CBR::Camera camera;
 	CBR::RenderImage( "..\\CBfront.ppm", image, camera );
 }
-```     
+```
 *****
-     
+
 ### 各クラス/関数の説明 Description of each class and function
 `CBR::ImageResolution image( 320, 240, 2, 4 );`     
 
@@ -44,7 +63,7 @@ int main(){
 **第3引数** 画像1ピクセルに対するN: 1ピクセルの解像度をN×N個のサブピクセルに分けて計算します      
 **第4引数** 1サブピクセルに対するサンプリング回数です。     
 第3, 第4引数の数が大きければ大きいほど綺麗な画像を出力します。     
-     
+​     
 **1st parameter** x (length) of resolotion of an image     
 **2nd parameter** y (width) of resolotion of an image     
 **3rd parameter** number of subpixels N: this program calculates color of one pixel divided N*N subpixels     
@@ -61,7 +80,7 @@ You can redefine the camera. Then you need define the cameras direction to front
 camera.SetPos( -45.0, 45.0, 25.0 );
 camera.SetDirectionFront( 1.0, -0.75, -0.4 );
 camera.SetDirectionUp( 0.75, 1.0, 0.0 );
-```     
+```
 *****
 `CBR::RenderImage( "..\\CBfront.ppm", image, camera );`     
 ファイルパスと前述の2つのインスタンスを引数に渡し、レンダリングを実行します。     

@@ -37,9 +37,6 @@
     <ClCompile Include="Screen.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="Vector.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PPMhandler.hpp">

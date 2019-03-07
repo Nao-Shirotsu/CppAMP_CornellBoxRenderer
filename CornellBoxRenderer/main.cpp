@@ -6,7 +6,7 @@ int main(){
 	// necessary settings
 
 	// image resolution and radiance-sampling number
-	CBR::ImageResolution image( 320, 240, 2, 128 );
+	CBR::ImageResolution image( 320, 240, 2, 16 );
 
 	// a camera that takes a screen
 	CBR::Camera camera;
